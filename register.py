@@ -15,3 +15,12 @@ def first_page():
             first_page()
     except:
         first_page()
+        ################################# helpful check functions #####################
+def check_user_email(x):
+    file_user_r=open("user.txt", "r")
+    for line in file_user_r:
+        if x in line:
+            print("!! Already used E-mail !!")
+            enter_mail()
+        else:
+            pass
