@@ -153,4 +153,43 @@ def project_create():
     except:
         project_create()
 
-        
+
+
+
+
+         # project_view()
+
+def project_view():
+    try:
+        print("\n#Here is all the projects:\n")
+        file_project_r=open("project.txt","r")
+        index=0
+        index_picked=0
+        index_list=[]
+        for line in file_project_r:
+            if index==0:
+                pass
+            else:
+                print(str(index)+" "+line.split(":")[1])
+                index_list.append(line.split(":")[1])
+            index+=1
+        picked_index=int(input("Please enter index: "))
+        file_project_r_1=open("project.txt","r")
+        for line in file_project_r_1:
+            if picked_index>len(index_list):
+                print("!! Please enter correct index !!")
+                project_view()
+            elif index_picked==picked_index:
+                print("\n#Here is the project you pick informations:\n")
+                print("Title: "+line.split(":")[1])
+                print("Details: "+line.split(":")[2])
+                print("Total target: "+line.split(":")[3])
+                print("Star date: "+line.split(":")[4])
+                print("finish date: "+line.split(":")[5])
+                project()
+            else:
+                pass
+            index_picked+=1
+        project()
+    except:
+        project_view()
