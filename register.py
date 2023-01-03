@@ -193,3 +193,55 @@ def project_view():
         project()
     except:
         project_view()
+
+
+
+
+##################### main page functions ################################3
+def login():
+    global login_email
+    login_email=input("Please enter your E-mail: ")
+    login_passwd=input("Please enter your password: ")
+    file_user_r=open("user.txt", "r")
+
+    # for line in file_user_r.readlines():
+    #     line_list=line.split(":")
+    #     if login_email ==line_list[1] and login_passwd ==line_list[2]:
+    #         project()
+    #     else:
+    #         pass
+    # print("E-mail or Password incorect")
+    # login()
+
+    pass_mail_dic={}
+    for line in file_user_r.readlines():
+        line_list=line.split(":")
+        pass_mail_dic[line_list[1]]=line_list[2]
+    if pass_mail_dic.get(login_email)==login_passwd:
+        project()
+    else:
+        print("!! E-mail or Password incorect !!")
+        login()
+    
+    
+def signup():
+    try:
+        user_name()
+        enter_mail()
+        password()
+        phone_number()
+    except KeyboardInterrupt:
+        print("\n\n!!Key Interrupt used!!\n\n")
+        file_user_r=open("user.txt","r")
+        read_lines=file_user_r.readlines()
+        for line in read_lines:
+            line_list=line.split(":")
+            if line_list[1]==email:
+                i=read_lines.index(line)
+                with open("user.txt","w") as f:
+                    for line in read_lines:
+                        if read_lines.index(line) !=i:
+                            f.write(line)
+        exit()
+    print("Please log in")
+    login()
