@@ -109,3 +109,14 @@ def project():
             project()
     except:
         project()
+
+
+
+def start_date():
+    try:
+        s_date=input("please Enter project start date as dd-mm-yyyy : ")
+        date_object = datetime.strptime(s_date, "%d-%m-%Y")
+        return date_object
+    except ValueError:
+        print("!! Worng start date format !!")
+        start_date()
