@@ -120,3 +120,14 @@ def start_date():
     except ValueError:
         print("!! Worng start date format !!")
         start_date()
+
+
+
+def finish_date():
+    try:
+        f_date=input("please Enter project finish date as dd-mm-yyyy : ")
+        date_object = datetime.strptime(f_date, "%d-%m-%Y")
+        return date_object
+    except ValueError:
+        print("!! Worng start date format !!")
+        finish_date()
