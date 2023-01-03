@@ -42,4 +42,13 @@ def check_project_title(x):
             print("!! Already used title !!")
             project_create()
         else:
-            pass
+            
+            
+
+            ############################################# signup sub_page functions #########################################
+def user_name():
+    first_name=input("Please enter first name: ")
+    last_name=input("Please enter last name: ")
+    file_user=open("user.txt", "a")
+    file_user.write("\n"+first_name+" "+last_name+":")
+    
