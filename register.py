@@ -65,3 +65,27 @@ def user_name():
         else:
             print("!! Invalid Email !!")
             enter_mail()
+
+
+def password():
+    passwd=input("Please enter password: ")
+    passwd_check=input("Please confirm password: ")
+    if passwd==passwd_check:
+        print("Correct password")
+        file_user=open("user.txt", "a")
+        file_user.write(passwd+":")
+    else:
+        print("!! Incorect password !!")
+        password()
+
+def phone_number():
+    ph_numb=input("Please enter Egyptian phone number: ")
+    r_ph_numb = r'^01[0125][0-9]{8}$'
+    if(re.fullmatch(r_ph_numb, ph_numb)):
+        check_user_phone(ph_numb)
+        print("Valid Egyptian phone number")
+        file_user=open("user.txt", "a")
+        file_user.write(ph_numb+":")
+    else:
+        print("!! Invalid Egyptian phone number !!")
+        phone_number()
