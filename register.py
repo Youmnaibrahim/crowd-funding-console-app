@@ -52,3 +52,16 @@ def user_name():
     file_user=open("user.txt", "a")
     file_user.write("\n"+first_name+" "+last_name+":")
     
+
+    def  enter_mail():
+        global email
+        email = input ("enter Email :" )
+        r_email = r'^([a-z]|[0-9]|\-|\_|\+|\.)+\@([a-z]|[0-9]){2,}\.[a-z]{2,}(\.[a-z]{2,})?$'
+        if(re.fullmatch(r_email, email)):
+            check_user_email(email)
+            print("Valid Email")
+            file_user=open("user.txt", "a")
+            file_user.write(email+":")
+        else:
+            print("!! Invalid Email !!")
+            enter_mail()
