@@ -24,3 +24,11 @@ def check_user_email(x):
             enter_mail()
         else:
             pass
+def check_user_phone(x):
+    file_user_r=open("user.txt", "r")
+    for line in file_user_r:
+        if x in line:
+            print("!! Already used phone number !!")
+            phone_number()
+        else:
+            pass
