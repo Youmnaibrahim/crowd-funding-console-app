@@ -32,3 +32,14 @@ def check_user_phone(x):
             phone_number()
         else:
             pass
+        
+        ##########################################################
+
+def check_project_title(x):
+    file_user_r=open("project.txt", "r")
+    for line in file_user_r:
+        if x in line:
+            print("!! Already used title !!")
+            project_create()
+        else:
+            pass
