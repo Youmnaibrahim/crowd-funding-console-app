@@ -89,3 +89,23 @@ def phone_number():
     else:
         print("!! Invalid Egyptian phone number !!")
         phone_number()
+
+
+
+        ############################################# login sub_page functions #########################################
+def project():
+    try:
+        print("\n$$ Welcome $$\n")
+        first_input=input("1- Create \n2- View \n3- back \nEnter choice your: ")
+        if int(first_input)==1:
+            project_create()
+            project()
+        elif int(first_input)==2:
+            project_view()
+        elif int(first_input)==3:
+            print("")
+            first_page()
+        else:
+            project()
+    except:
+        project()
