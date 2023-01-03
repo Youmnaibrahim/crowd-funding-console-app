@@ -1,0 +1,2 @@
+import register
+register.main()
