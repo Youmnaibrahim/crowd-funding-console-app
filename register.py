@@ -131,3 +131,26 @@ def finish_date():
     except ValueError:
         print("!! Worng start date format !!")
         finish_date()
+
+
+
+        #################### project functions #########################################
+def project_create():
+    try:
+        print("\n#Now you are creating a new project \n")
+        title=input("Please Enter project title: ")
+        check_project_title(title)
+        details=input("Please Enter project details: ")
+        total_target=input("Please Enter project total target: ")
+        s_date=start_date()
+        f_date=finish_date()
+        if s_date > f_date:
+            print("!! Error in date !!")
+            project_create()
+        else:
+            file_project_a=open("project.txt","a")
+            file_project_a.write("\n"+login_email+":"+title+":"+details+":"+total_target+":"+str(s_date).split(" ")[0]+":"+str(f_date).split(" ")[0]+":")
+    except:
+        project_create()
+
+        
